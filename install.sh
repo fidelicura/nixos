@@ -30,7 +30,11 @@ echo -e "\n[$] > Stowing done successfully!\n"
 
 read -p "[$] > Rebuild? " REBUILD_ANSWER
 if [ "$REBUILD_ANSWER" = "yes" ] || [ "$REBUILD_ANSWER" = "y" ] || [ "$REBUILD_ANSWER" = "Y" ]; then
-  echo -e "\n[$] > Rebuilding NixOS..."
-  sudo nixos-rebuild switch -I nixos-config=./configuration.nix
+  echo -e "\n[$] > Rebuilding NixOS...\n"
+  if command -v doas >/dev/null 2>&1; then
+    doas nixos-rebuild switch -I nixos-config=./configuration.nix
+  else
+    sudo nixos-rebuild switch -I nixos-config=./configuration.nix
+  fi
   echo -e "\n[$] > Rebuilt NixOS successfully!"
 fi

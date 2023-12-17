@@ -183,9 +183,10 @@
     zig zls
     python3
     rustc cargo rust-analyzer clippy
+    texlab marksman
     # messengers
     telegram-desktop
-    discordo
+    dorion
     # gaming
     steam-tui
     # theme

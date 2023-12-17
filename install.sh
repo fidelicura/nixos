@@ -18,8 +18,19 @@ mkdir -p $HOME/.mozilla/firefox/main.main/assets
 mkdir -p $HOME/.mozilla/firefox/main.main/extensions
 echo -e "\n[$] > Hierarchy created successfully!"
 
+
+
 echo -e "\n[$] > Stowing configuration files..."
 cd configs/ &&
 stow -t $HOME */ &&
 cd ..
 echo -e "\n[$] > Stowing done successfully!"
+
+
+
+read -p "\n[$] > Rebuild? " REBUILD_ANSWER
+if [ "$REBUILD_ANSWER" = "yes" ] || [ "$REBUILD_ANSWER" = "y" ] || [ "$REBUILD_ANSWER" = "Y" ]; then
+  echo -e "\n[$] > Rebuilding NixOS..."
+  sudo nixos-rebuild switch -I nixos-config=./configuration.nix
+  echo -e "\n[$] > Rebuilt NixOS successfully!"
+fi

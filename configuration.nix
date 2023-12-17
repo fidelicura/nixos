@@ -197,7 +197,9 @@
     bash
     calc
     stow
+    xclip
     bottom
+    slippy
     bunnyfetch
     shotgun slop
     transmission-gtk

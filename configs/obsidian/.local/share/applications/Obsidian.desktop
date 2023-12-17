@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Obsidian
-Exec=/home/fidelicura/.own/obsidian/Obsidian.AppImage %u
-Terminal=false
-Type=Application
-Categories=Office;
-MimeType=x-scheme-handler/obsidian;

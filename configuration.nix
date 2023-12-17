@@ -158,6 +158,10 @@
     enable = true;
     userName = "Kirill <fidelicura> Bezuglyi";
     userEmail = "fidelicura@gmail.com";
+    extraConfig = {
+      credential.helper = "store";
+      http.postBuffer = "157286400";
+    };
   };
   # {{ VCS }}
 

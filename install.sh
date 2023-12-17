@@ -24,11 +24,11 @@ echo -e "\n[$] > Stowing configuration files..."
 cd configs/ &&
 stow -t $HOME */ &&
 cd ..
-echo -e "\n[$] > Stowing done successfully!"
+echo -e "\n[$] > Stowing done successfully!\n"
 
 
 
-read -p "\n[$] > Rebuild? " REBUILD_ANSWER
+read -p "[$] > Rebuild? " REBUILD_ANSWER
 if [ "$REBUILD_ANSWER" = "yes" ] || [ "$REBUILD_ANSWER" = "y" ] || [ "$REBUILD_ANSWER" = "Y" ]; then
   echo -e "\n[$] > Rebuilding NixOS..."
   sudo nixos-rebuild switch -I nixos-config=./configuration.nix

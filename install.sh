@@ -1,3 +1,8 @@
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+
+
 echo -e "\n[$] > Creating folders hierarchy..."
 mkdir -p $HOME/downloads
 mkdir -p $HOME/projects
@@ -16,7 +21,7 @@ mkdir -p $HOME/.local/share/themes
 mkdir -p $HOME/.mozilla/firefox/main.main/chrome
 mkdir -p $HOME/.mozilla/firefox/main.main/assets
 mkdir -p $HOME/.mozilla/firefox/main.main/extensions
-echo -e "\n[$] > Hierarchy created successfully!"
+echo -e "\n${GREEN}[$] > Hierarchy created successfully!${NC}"
 
 
 
@@ -24,7 +29,7 @@ echo -e "\n[$] > Stowing configuration files..."
 cd configs/ &&
 stow -t $HOME */ &&
 cd ..
-echo -e "\n[$] > Stowing done successfully!\n"
+echo -e "\n${GREEN}[$] > Stowing done successfully!${NC}\n"
 
 
 
@@ -36,5 +41,6 @@ if [ "$REBUILD_ANSWER" = "yes" ] || [ "$REBUILD_ANSWER" = "y" ] || [ "$REBUILD_A
   else
     sudo nixos-rebuild switch -I nixos-config=./configuration.nix
   fi
-  echo -e "\n[$] > Rebuilt NixOS successfully!"
+  echo -e "\n${GREEN}[$] > Rebuilt NixOS successfully!${NC}"
 fi
+echo -e "\n${GREEN}[$] > Successfully finished work!${NC}"

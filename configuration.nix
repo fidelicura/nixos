@@ -186,7 +186,7 @@
     texlab marksman
     # messengers
     telegram-desktop
-    dorion
+    armcord
     # gaming
     steam-tui
     # theme

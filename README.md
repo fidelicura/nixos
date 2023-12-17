@@ -1,4 +1,4 @@
 # TODO
 
 - GTK theming
-- Alacritty config
+- DuckDuckGo config

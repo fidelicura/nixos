@@ -7,16 +7,10 @@ fi
 
 
 # {{ CUSTOM }}
-export TERM=xterm
 export EDITOR=hx
 export VISUAL=hx
-
-export CC=clang
-export CXX=clang++
-export AS=llvm-as
-export GOPATH=$HOME/.own/go
-export CARGO_HOME=$HOME/.own/rust/cargo
-export RUSTUP_HOME=$HOME/.own/rust/rustup
+export TERM=xterm
+PATH=$PATH:~/.local/share/bin
 # {{ CUSTOM }}
 
 
@@ -26,7 +20,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-# export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_DIRS=/etc/xdg
 

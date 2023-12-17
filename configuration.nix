@@ -183,7 +183,7 @@
     # desktop
     bspwm
     sxhkd
-    picom-jonaburg
+    picom
     dunst
     rofi
     eww

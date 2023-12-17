@@ -14,7 +14,7 @@
 	frame_width = 2
 	separator_color = auto
 	sort = true
-	font = Iosevka Regular 12
+	font = Iosevka NF Medium 12
 	line_height = 0
 	markup = full
 	format = "<b>%s</b>\n%b"

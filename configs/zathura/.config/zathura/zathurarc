@@ -52,7 +52,7 @@ map [fullscreen] f toggle_fullscreen
 
 
 # {{ OPTIONS }}
-set font "Iosevka Regular 14"
+set font "Iosevka NF Medium 14"
 
 set adjust-open "best-fit"
 

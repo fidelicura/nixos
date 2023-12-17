@@ -4,6 +4,7 @@ NC='\033[0m'
 
 
 echo -e "\n[$] > Creating folders hierarchy..."
+mkdir -p $HOME/games
 mkdir -p $HOME/downloads
 mkdir -p $HOME/projects
 mkdir -p $HOME/documents

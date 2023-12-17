@@ -39,7 +39,7 @@
 
 
   # {{ NETWORK }}
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "asspain"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Open ports in the firewall.
@@ -190,7 +190,6 @@
     # gaming
     steam-tui
     # theme
-    termsyn
     gruvbox-dark-gtk
     gruvbox-dark-icons-gtk
     # sound

@@ -153,11 +153,20 @@
 
 
 
+  # {{ VCS }}
+  programs.git = {
+    enable = true;
+    userName = "Kirill <fidelicura> Bezuglyi";
+    userEmail = "fidelicura@gmail.com";
+  };
+  # {{ VCS }}
+
+
+
   # {{ PACKAGES }}
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # web
-    git
     curl
     firefox
     # terminal

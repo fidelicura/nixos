@@ -7,3 +7,4 @@ Fonts ([Nerd Font](https://www.nerdfonts.com/#home) patched):
 # TODO
 
 - GTK theming
+- Eww bar

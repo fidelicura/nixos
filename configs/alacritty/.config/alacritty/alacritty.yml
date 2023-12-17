@@ -19,7 +19,7 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 14.0
+  size: 18.0
   normal:
     family: BigBlueTermPlus Nerd Font Mono
     style: Regular

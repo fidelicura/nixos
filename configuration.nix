@@ -191,6 +191,7 @@
     ghc haskellPackages.lsp
     # messengers
     telegram-desktop
+    discord
     anydesk
     # theme
     gruvbox-dark-gtk

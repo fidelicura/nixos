@@ -42,11 +42,6 @@ function screenrec() {
     ffmpeg -f x11grab -i :0.0 $HOME/documents/videos/$(date "+%Y-%m-%d_%H-%M-%S").mkv
 }
 
-function sus() {
-    local args="$@";
-    su -c "$args"
-}
-
 function nsync() {
     local stamp="$(date +'%Y-%m-%d')"
 

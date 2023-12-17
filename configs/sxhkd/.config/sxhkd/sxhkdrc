@@ -1,0 +1,42 @@
+# {{ APPS }}
+super + Return
+	kitty
+
+super + p
+	rofi -show drun
+
+Print
+	exec $HOME/.own/bin/screenshot
+
+super + Print
+	exec $HOME/.own/bin/full_screenshot
+
+super + shift + {plus,minus}
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+# {{ APPS }}
+
+
+
+# {{ BSPWM }}
+super + shift + q
+	bspc {quit,wm -r}
+
+super + w
+	bspc node -{c,k}
+
+super + v
+	bspc desktop -l next
+
+super + s
+	bspc node -t {tiled,fullscreen}
+
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+super + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+super + {1-8}
+	bspc desktop -f '^{1-8}'
+super + shift + {1-8}
+	bspc node -d '^{1-8}'
+# {{ BSPWM }}

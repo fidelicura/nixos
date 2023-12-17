@@ -1,0 +1,43 @@
+#!/bin/sh
+
+
+
+# {{ BINDINGS }}
+pgrep -x sxhkd > /dev/null || sxhkd &
+# {{ BINDINGS }}
+
+
+
+# {{ WORKSPACES }}
+bspc monitor -d 1 2 3 4 5 6 7 8
+# {{ WORKSPACES }}
+
+
+
+# {{ DECORATIONS }}
+bspc config border_width 20
+bspc config window_gap 30
+bspc config normal_border_color "#282828"
+bspc config focused_border_color "#282828"
+# {{ DECORATIONS }}
+
+
+
+# {{ TILING }}
+bspc config split_ratio 0.57
+bspc config borderless_monocle false
+bspc config gapless_monocle false
+bspc config single_monocle false
+# {{ TILING }}
+
+
+
+# {{ FOCUS }}
+bspc config focus_follows_pointer false
+# {{ FOCUS }}
+
+
+
+# {{ RULES }}
+bspc rule -a Zathura state=tiled
+# {{ RULES }}

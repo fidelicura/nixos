@@ -1,0 +1,13 @@
+configuration {
+    show-icons: true;
+    font: "Iosevka 12";
+    modes: "drun,filebrowser";
+    icon-theme: "Papirus-Dark";
+
+    display-drun:   "> drun:";
+    display-filebrowser: "󰉋 filebrowser:";
+
+    dpi: 120;
+}
+
+@theme "theme"

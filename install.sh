@@ -9,6 +9,7 @@ mkdir -p $HOME/documents/videos
 mkdir -p $HOME/documents/pictures
 
 mkdir -p $HOME/.config
+mkdir -p $HOME/.local/share/bin
 mkdir -p $HOME/.local/share/fonts
 mkdir -p $HOME/.local/share/icons
 mkdir -p $HOME/.local/share/themes

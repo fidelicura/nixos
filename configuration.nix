@@ -213,6 +213,7 @@
     stow
     bottom
     bunnyfetch
+    shotgun slop
     transmission-gtk
   ];
   virtualisation.docker.enable = true;

@@ -30,7 +30,7 @@ echo -e "\n[$] > Stowing configuration files..."
 cd configs/ &&
 stow -t $HOME */ &&
 cd ..
-echo -e "\n${GREEN}[$] > Stowing done successfully!${NC}\n"
+echo -e "${GREEN}[$] > Stowing done successfully!${NC}\n"
 
 
 

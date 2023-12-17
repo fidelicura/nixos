@@ -202,8 +202,11 @@
     # gaming
     steam-tui
     # theme
+    termsyn
     gruvbox-dark-gtk
     gruvbox-dark-icons-gtk
+    # sound
+    pulseaudio
     # utils
     bash
     calc

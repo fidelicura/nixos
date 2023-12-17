@@ -1,6 +1,6 @@
 # {{ APPS }}
 super + Return
-	kitty
+	alacritty
 
 super + p
 	rofi -show drun

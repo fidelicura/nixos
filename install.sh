@@ -34,6 +34,12 @@ echo -e "\n${GREEN}[$] > Stowing done successfully!${NC}\n"
 
 
 
+echo -e "\n${GREEN}[$] > Updating font cache...${NC}\n"
+fc-cache -f -v
+echo -e "\n${GREEN}[$] > Font cache updated successfully!${NC}\n"
+
+
+
 read -p "[$] > Rebuild? " REBUILD_ANSWER
 if [ "$REBUILD_ANSWER" = "yes" ] || [ "$REBUILD_ANSWER" = "y" ] || [ "$REBUILD_ANSWER" = "Y" ]; then
   echo -e "\n[$] > Rebuilding NixOS...\n"

@@ -157,6 +157,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # web
+    git
     curl
     firefox
     # terminal

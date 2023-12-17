@@ -103,6 +103,11 @@
       xterm
     ];
     displayManager.startx.enable = true;
+    libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
+      mouse.accelSpeed = "-3.0";
+    };
   };
   # {{ X11 }}
 
@@ -184,6 +189,7 @@
     python3
     rustc cargo rust-analyzer clippy
     texlab marksman
+    ghc haskellPackages.lsp
     # messengers
     telegram-desktop
     # gaming

@@ -187,7 +187,7 @@
     # messengers
     telegram-desktop
     # gaming
-    steam-tui
+    steam
     # theme
     gruvbox-dark-gtk
     gruvbox-dark-icons-gtk

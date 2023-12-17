@@ -1,5 +1,6 @@
-GREEN='\033[0;32m'
-NC='\033[0m'
+GREEN="\033[0;32m"
+NC="\033[0m"
+CWD=$(pwd)
 
 
 
@@ -29,7 +30,6 @@ echo -e "\n${GREEN}[$] > Hierarchy created successfully!${NC}"
 echo -e "\n[$] > Stowing configuration files..."
 cd configs/ &&
 stow -t $HOME */ &&
-cd ..
 echo -e "${GREEN}[$] > Stowing done successfully!${NC}\n"
 
 
@@ -44,8 +44,10 @@ read -p "[$] > Rebuild? " REBUILD_ANSWER
 if [ "$REBUILD_ANSWER" = "yes" ] || [ "$REBUILD_ANSWER" = "y" ] || [ "$REBUILD_ANSWER" = "Y" ]; then
   echo -e "\n[$] > Rebuilding NixOS...\n"
   if command -v doas >/dev/null 2>&1; then
+    cd $CWD
     doas nixos-rebuild switch -I nixos-config=./configuration.nix
   else
+    cd $CWD
     sudo nixos-rebuild switch -I nixos-config=./configuration.nix
   fi
   echo -e "\n${GREEN}[$] > Rebuilt NixOS successfully!${NC}"

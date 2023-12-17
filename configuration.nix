@@ -106,7 +106,7 @@
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
-      mouse.accelSpeed = "-3.0";
+      mouse.accelSpeed = "-2.7";
     };
   };
   # {{ X11 }}
@@ -178,7 +178,6 @@
     picom
     dunst
     rofi
-    eww
     zathura
     xwallpaper
     # languages
@@ -192,8 +191,7 @@
     ghc haskellPackages.lsp
     # messengers
     telegram-desktop
-    # gaming
-    steam
+    anydesk
     # theme
     gruvbox-dark-gtk
     gruvbox-dark-icons-gtk
@@ -211,6 +209,11 @@
     transmission-gtk
   ];
   virtualisation.docker.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
   # {{ PACKAGES }}
 
 

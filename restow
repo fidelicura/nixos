@@ -16,13 +16,19 @@ hierarchy() {
   sudo mkdir -p /usr/lib/firefox/distribution
 }
 
-hierarchy
-cd source
-pushd house
-stow -t $HOME */
-popd && pushd system
-cd firefox
-sudo stow -t /usr/lib/firefox/distribution policies.json
-cd ..
-popd
-cd ..
+main() {
+  hierarchy
+  cd source
+  
+  pushd house > /dev/null
+  stow -v -t $HOME/ */
+  popd > /dev/null
+  
+  pushd system/firefox > /dev/null
+  sudo stow -v -t /usr/lib/firefox/distribution/ distribution/
+  popd > /dev/null
+
+  cd ..
+}
+
+main

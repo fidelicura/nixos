@@ -1,0 +1,24 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+mouse = false
+rulers = [80]
+true-color = true
+popup-border = "all"
+
+[editor.lsp]
+display-messages = true
+snippets = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "file-type"]
+center = ["file-name", "spinner"]
+right = ["file-line-ending", "position"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "VISUAL"

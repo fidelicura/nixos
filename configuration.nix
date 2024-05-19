@@ -6,11 +6,24 @@
   ...
 }: {
   # ===> HARDWARE #
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   # ===> HARDWARE #
+
+  # ===> PARTITION #
+  fileSystems = {
+    "/" = {
+      "device" = "/dev/disk/by-label/MAIN";
+      "fsType" = "xfs";
+    };
+    "/boot" = {
+      "device" = "/dev/disk/by-label/UEFI";
+      "fsType" = "vfat";
+    };
+  };
+  # ===> PARTITION #
 
   # ===> BOOT #
   boot.initrd.availableKernelModules = [
@@ -65,7 +78,6 @@
     desktopManager.gnome.enable = true;
     xkb = {
       layout = "us,ru";
-      options = "grp:alt_shift_toggle";
     };
   };
   environment.gnome.excludePackages =
@@ -93,8 +105,10 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # {{ USUAL }}
+    stow
     helix
     firefox-esr
+    telegram-desktop
     wireproxy
     coreutils diffutils findutils binutils fzf
     zip unzip rar unrar gnutar xz atool

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo nixos-rebuild -I nixos-config=configuration.nix switch --fast

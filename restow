@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+hierarchy() {
+  rm -f $HOME/.bashrc
+  rm -f $HOME/.bash_profile
+  rm -f $HOME/.bash_aliases
+  rm -f $HOME/.profile
+
+  mkdir -p $HOME/.config/vpn
+  mkdir -p $HOME/.local/share/fonts
+  mkdir -p $HOME/.local/share/icons
+  mkdir -p $HOME/.local/share/themes
+  mkdir -p $HOME/.local/share/applications
+  mkdir -p $HOME/.mozilla/firefox/main.main/chrome
+
+  sudo mkdir -p /usr/lib/firefox/distribution
+}
+
+hierarchy
+cd source
+pushd house
+stow -t $HOME */
+popd && pushd system
+cd firefox
+sudo stow -t /usr/lib/firefox/distribution policies.json
+cd ..
+popd
+cd ..

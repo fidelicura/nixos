@@ -1,0 +1,13 @@
+CompileFlags:
+  Add: [
+    -xc, -std=c99,
+    -Wall, -Wextra, -Werror,
+    -Wshadow, -Wunder, -Wunreachable-code,
+    -Wpointer-aritch, -Wcast-align, -Wcast-qual,
+    -Wstrict-prototypes, -Wstrict-overflow=5,
+    -Wwrite-strings, -Wconversion,
+    -Wswitch-default, -Wswitch-enum,
+    -Wuninitialized, -Winit-self
+    ]
+  Remove: -W*
+  Compiler: clang

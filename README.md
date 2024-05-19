@@ -10,5 +10,6 @@ Welcome! Here you can see my [NixOS](https://nixos.org/) configuration files in 
 # Todos
 
 - [x] Initial configuration.
+- [x] Switch shell script.
+- [ ] Remove unused GNOME pre-installed applications.
 - [ ] Zero install shell script.
-- [ ] Switch shell script.

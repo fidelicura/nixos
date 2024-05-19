@@ -67,7 +67,7 @@
   # ===> USER #
   users.users.fidelicura = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "networkmanager" ];
   };
   # ===> USER #
 
@@ -120,6 +120,11 @@
     lld mold
     pkgconf autoconf automake
     clang-tools
+    zlib ncurses openssl c-ares
+    libunwind icu readline nghttp2
+    (python311.withPackages(ps: with ps;[
+      wheel pyyaml six gevent
+    ]))
   ];
   programs.firefox = {
     enable = true;

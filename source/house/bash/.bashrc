@@ -35,7 +35,7 @@ source ~/.bash_aliases
 
 # {{ FUNCTIONS }}
 cd() { command cd "$@"; ls; }
-clear() { command clear; neofetch; echo; ls; }
+clear() { command clear; echo; ls; }
 
 bashclear() {
     history -c && history -w

@@ -4,7 +4,8 @@ Welcome! Here you can see my [NixOS](https://nixos.org/) configuration files in 
 
 # Attention
 
-Configuration will only work with both CPU and GPU from AMD.
+1) Configuration will only work with both CPU and GPU from AMD.
+2) Your disk should be split onto two partitions: `vfat:boot` and `xfs:nixos`.
 
 # Todos
 

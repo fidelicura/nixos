@@ -136,7 +136,8 @@
     stow bottom
     gnomeExtensions.space-bar
     # {{ SYSTEM }}
-    mako swaylock swayimg
+    mako waybar
+    swaylock swayimg
     sway-contrib.grimshot
     # {{ DEVELOPMENT }}
     git lazygit
@@ -153,9 +154,16 @@
       wheel pyyaml six gevent
     ]))
   ];
-  fonts.packages = with pkgs; [
-    noto-fonts noto-fonts-monochrome-emoji
-  ];
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts noto-fonts-monochrome-emoji
+      font-awesome
+    ];
+    fontDir.enable = true;
+    # fontconfig = {
+    #   enable = true;
+    # };
+  };
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-esr;

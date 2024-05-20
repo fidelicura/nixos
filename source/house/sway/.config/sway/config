@@ -2,10 +2,11 @@
     exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 45%
     exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 80%
 
-    exec_always pipewire
-    exec_always pipewire-pulse
+    # exec_always pipewire
+    # exec_always pipewire-pulse
     exec_always mako
     exec_always swayidle
+    exec_always waybar
     # exec_always udiskie
     exec_always foot --server
     exec_always wireproxy -c $HOME/.config/vpn/config.conf

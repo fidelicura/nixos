@@ -136,7 +136,7 @@
     stow bottom
     gnomeExtensions.space-bar
     # {{ SYSTEM }}
-    mako waybar
+    mako waybar brightnessctl
     swaylock swayimg
     sway-contrib.grimshot
     # {{ DEVELOPMENT }}

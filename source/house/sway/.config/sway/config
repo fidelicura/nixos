@@ -2,8 +2,6 @@
     exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 45%
     exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 80%
 
-    # exec_always pipewire
-    # exec_always pipewire-pulse
     exec_always mako
     exec_always swayidle
     exec_always waybar
@@ -26,7 +24,7 @@
     set $browser firefox
     set $screenshot grimshot --notify copy area
     set $launcher fuzzel
-    set $tasks foot --title=termtasks sh -c "hx ~/personal/thoughts/tasks.md"
+    set $tasks foot --title=termtasks sh -c "hx ~/Documents/personal/thoughts/tasks.md"
     for_window [title="termtasks"] floating enable
 
     set $sound_up wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+

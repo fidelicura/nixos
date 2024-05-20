@@ -1,0 +1,22 @@
+anchor=top-right
+font=Noto Sans 14px
+background-color=#1d2021
+text-color=#d5c4a1
+border-color=#83a598
+default-timeout=1000
+margin=16,16
+
+[urgency=low]
+background-color=#1d2021
+text-color=#fabd2f
+border-color=#83a598
+
+[urgency=normal]
+background-color=#1d2021
+text-color=#fabd2f
+border-color=#83a598
+
+[urgency=high]
+background-color=#1d2021
+text-color=#fb4934
+border-color=#83a598

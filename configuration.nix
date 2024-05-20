@@ -50,6 +50,7 @@
   # ===> LOCALIZATION #
 
   # ===> SECURITY #
+  security.polkit.enable = true;
   security.rtkit.enable = true;
   # ===> SECURITY #
   
@@ -67,36 +68,39 @@
   # ===> USER #
   users.users.fidelicura = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ];
+    extraGroups = [
+      "video" "audio"
+      "wheel" "docker" "networkmanager"
+    ];
   };
   # ===> USER #
 
   # ===> DESKTOP #
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    xkb = {
-      layout = "us,ru";
-    };
-    excludePackages = with pkgs; [
-      xterm
-    ];
-  };
-  environment.gnome.excludePackages =
-  (with pkgs; [
-    gnome-tour
-    gnome-connections
-  ]) ++ (with pkgs.gnome; [
-    epiphany
-    geary
-    seahorse
-    gnome-maps
-    gnome-terminal
-    gnome-contacts
-    gnome-clocks
-    gnome-maps
-  ]);
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.gdm.enable = true;
+  #   desktopManager.gnome.enable = true;
+  #   xkb = {
+  #     layout = "us,ru";
+  #   };
+  #   excludePackages = with pkgs; [
+  #     xterm
+  #   ];
+  # };
+  # environment.gnome.excludePackages =
+  # (with pkgs; [
+  #   gnome-tour
+  #   gnome-connections
+  # ]) ++ (with pkgs.gnome; [
+  #   epiphany
+  #   geary
+  #   seahorse
+  #   gnome-maps
+  #   gnome-terminal
+  #   gnome-contacts
+  #   gnome-clocks
+  #   gnome-maps
+  # ]);
   # ===> DESKTOP #
 
   # ===> VIRTUALIZATION #
@@ -111,16 +115,29 @@
   # ===> PACKAGE #
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
   environment.systemPackages = with pkgs; [
     # {{ USUAL }}
-    alacritty
+    foot
     helix
+    zathura
+    fuzzel
     telegram-desktop
     wireproxy
     coreutils diffutils findutils binutils fzf
     zip unzip rar unrar gnutar xz atool
-    stow
+    stow bottom
     gnomeExtensions.space-bar
+    # {{ SYSTEM }}
+    mako swaylock swayimg
+    sway-contrib.grimshot
     # {{ DEVELOPMENT }}
     git lazygit
     gcc clang rustup python3 go
@@ -135,6 +152,9 @@
     (python311.withPackages(ps: with ps;[
       wheel pyyaml six gevent
     ]))
+  ];
+  fonts.packages = with pkgs; [
+    noto-fonts noto-fonts-monochrome-emoji
   ];
   programs.firefox = {
     enable = true;

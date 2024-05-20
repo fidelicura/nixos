@@ -79,6 +79,9 @@
     xkb = {
       layout = "us,ru";
     };
+    excludePackages = with pkgs; [
+      xterm
+    ];
   };
   environment.gnome.excludePackages =
   (with pkgs; [
@@ -87,7 +90,11 @@
   ]) ++ (with pkgs.gnome; [
     epiphany
     geary
-    evince
+    gnome-maps
+    gnome-terminal
+    gnome-contacts
+    gnome-clocks
+    gnome-maps
   ]);
   # ===> DESKTOP #
 
@@ -205,6 +212,11 @@
         };
         "{0c3ab5c8-57ac-4ad8-9dd1-ee331517884d}" = {
           "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/proxy-toggle/latest.xpi";
+          "installation_mode" = "force_installed";
+          "default_area" = "navbar";
+        };
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           "installation_mode" = "force_installed";
           "default_area" = "navbar";
         };

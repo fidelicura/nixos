@@ -59,6 +59,10 @@ nedit() {
     local filepath=$(find $HOME/Documents/personal -not -path '*/.*' | fzf)
     hx "$filepath"
 }
+
+gco() {
+    git checkout $(git branch | fzf)
+}
 # {{ FUNCTIONS }}
 
 

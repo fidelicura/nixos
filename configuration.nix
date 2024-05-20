@@ -90,6 +90,7 @@
   ]) ++ (with pkgs.gnome; [
     epiphany
     geary
+    seahorse
     gnome-maps
     gnome-terminal
     gnome-contacts
@@ -112,14 +113,16 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # {{ USUAL }}
-    stow
+    alacritty
     helix
     telegram-desktop
     wireproxy
     coreutils diffutils findutils binutils fzf
     zip unzip rar unrar gnutar xz atool
+    stow
+    gnomeExtensions.space-bar
     # {{ DEVELOPMENT }}
-    git
+    git lazygit
     gcc clang rustup python3 go
     gnumake cmake just mage
     gnupatch libtool
@@ -238,7 +241,7 @@
       "gfx.canvas.accelerated.cache-items" = 4096;
       "gfx.canvas.accelerated.cache-size" = 512;
       "gfx.content.skia-font-cache-size" = 20;
-      "browser.cache.disk.enable" = false;
+      "browser.cache.disk.enable" = true;
       "media.memory_cache_max_size" = 65536;
       "media.cache_readahead_limit" = 7200;
       "media.cache_resume_threshold" = 3600;

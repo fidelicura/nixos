@@ -1,4 +1,4 @@
-theme = "gruvbox_dark_hard"
+theme = "adwaita-dark"
 
 [editor]
 mouse = false
@@ -21,3 +21,6 @@ right = ["file-line-ending", "position"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "VISUAL"
+
+[keys.normal]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]

@@ -1,0 +1,14 @@
+[user]
+    email = fidelicura@gmail.com
+    name = Kirill Bezuglyi
+    signingkey = $HOME/.ssh/self_key.pub
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
+
+[includeIf "gitdir:$HOME/Work/"]
+    path = $HOME/Work/.gitconfig
+

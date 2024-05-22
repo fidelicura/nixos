@@ -73,6 +73,7 @@
       "wheel" "docker" "networkmanager"
     ];
   };
+  users.extraGroups.vboxusers.members = [ "fidelicura" ];
   # ===> USER #
 
   # ===> DESKTOP #
@@ -104,8 +105,7 @@
   # ===> DESKTOP #
 
   # ===> VIRTUALIZATION #
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
@@ -115,6 +115,7 @@
   # ===> PACKAGE #
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
+  programs.dconf.enable = true;
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -122,6 +123,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
   environment.systemPackages = with pkgs; [
     # {{ USUAL }}
@@ -135,6 +137,9 @@
     zip unzip rar unrar gnutar xz atool
     stow bottom
     gnomeExtensions.space-bar
+    felix-fm chafa
+    drawio
+    virtio-win
     # {{ SYSTEM }}
     mako waybar brightnessctl
     swaylock swayimg
@@ -158,6 +163,7 @@
     packages = with pkgs; [
       noto-fonts noto-fonts-monochrome-emoji
       font-awesome
+      corefonts
     ];
     fontDir.enable = true;
     # fontconfig = {
@@ -251,10 +257,9 @@
           "installation_mode" = "force_installed";
           "default_area" = "navbar";
         };
-        "{3346f53a-bd1f-4f3f-94ff-70bb122083b3}" = {
-          "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/toggle-resist-fingerprinting/latest.xpi";
+        "{04045260-0faa-43af-99fd-a3c84f5f7859}" = {
+          "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/gruvbox_dark_hard/latest.xpi";
           "installation_mode" = "force_installed";
-          "default_area" = "navbar";
         };
       };
     };
@@ -300,7 +305,6 @@
       "privacy.trackingprotection.pbmode.enabled" = true;
       "privacy.donottrackheader.enabled" = true;
       "general.useragent.override" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML = like Gecko) Chrome/119.0.0.0 Safari/537.36";
-      "privacy.resistFingerprinting" = true;
       "browser.search.region" = "UK";
       "doh-rollout.home-region" = "UK";
       "security.OCSP.enabled" = 0;

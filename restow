@@ -6,6 +6,9 @@ hierarchy() {
   rm -f $HOME/.bash_aliases
   rm -f $HOME/.profile
 
+  mkdir -p $HOME/Work
+
+  mkdir -p $HOME/.ssh
   mkdir -p $HOME/.config/vpn
   mkdir -p $HOME/.local/share/fonts
   mkdir -p $HOME/.local/share/icons

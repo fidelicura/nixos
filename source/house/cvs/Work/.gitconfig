@@ -1,0 +1,10 @@
+[user]
+	email = k.bezuglyi@picodata.io
+	name = Кирилл Безуглый
+	signingkey = $HOME/.ssh/work_key.pub
+
+[gpg]
+    format = ssh
+
+[commit]
+	gpgsign = true

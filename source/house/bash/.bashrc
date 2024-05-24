@@ -63,6 +63,18 @@ nedit() {
 gco() {
     git checkout $(git branch | fzf)
 }
+
+function sshk() {
+    if [ -z "$SSH_AGENT_PID" ]; then
+        eval $(ssh-agent -s)
+    fi
+    
+    for key in $HOME/.ssh/*; do
+        if [[ $key =~ _key$ ]]; then
+            ssh-add "$key"
+        fi
+    done
+}
 # {{ FUNCTIONS }}
 
 

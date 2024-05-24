@@ -3,9 +3,6 @@
     exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 80%
 
     exec_always mako
-    exec_always swayidle
-    exec_always waybar
-    # exec_always udiskie
     exec_always foot --server
     exec_always wireproxy -c $HOME/.config/vpn/config.conf
 # {{ AUTORUN }}
@@ -24,6 +21,7 @@
     set $browser firefox
     set $screenshot grimshot --notify copy area
     set $launcher fuzzel
+    set $locker swaylock
     set $tasks foot --title=termtasks sh -c "hx ~/Documents/personal/thoughts/tasks.md"
     for_window [title="termtasks"] floating enable
 
@@ -69,6 +67,7 @@ input type:keyboard {
     bindsym $mod+q kill
     bindsym $mod+Shift+r reload
     bindsym $mod+Shift+q exit
+    bindsym $mod+Shift+s exec $locker
     floating_modifier $mod normal
 
     # apps
@@ -134,10 +133,7 @@ input type:keyboard {
 # {{ KEYBINDINGS }}
 
 # {{ THEME }}
-    gaps inner 10
-    gaps outer 5
-
-    default_border pixel 2
+    default_border pixel 0
     default_floating_border pixel 2
 
     set $bg            #d65d0e
@@ -153,5 +149,25 @@ input type:keyboard {
     client.focused_inactive $bg-inactive  $bg-inactive $text-inactive $bar $bar
     client.urgent           $bg-urgent    $bg-urgent   $text          $bar $bar
 # {{ THEME }}
+
+# {{ STATUS }}
+bar {
+    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    swaybar_command swaybar
+    tray_output none
+
+    position bottom
+    height 24
+
+    font pango:Noto Sans 12
+    colors {
+        statusline #ebdbb2ff
+        background #1d2021ff
+
+        focused_workspace #d65d0eff #1d2021ff #ebdbb2ff
+        inactive_workspace #1d2021ff #1d2021ff #ebdbb2ff
+    }
+}
+# {{ STATUS }}
 
 include /etc/sway/config.d/*

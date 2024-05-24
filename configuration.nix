@@ -32,6 +32,7 @@
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelParams = [ "quiet" "splash" "acpi=force" "apm=power_off" ];
   boot.extraModulePackages = [ ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -52,6 +53,7 @@
   # ===> SECURITY #
   security.polkit.enable = true;
   security.rtkit.enable = true;
+  programs.ssh.startAgent = true;
   # ===> SECURITY #
   
   # ===> SOUND #
@@ -112,6 +114,30 @@
   };
   # ===> VIRTUALIZATION #
 
+  # ===> LAPTOP #
+  services.tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 20;
+
+       #Optional helps save long term battery health
+       START_CHARGE_THRESH_BAT0 = 20; # 40 and bellow it starts to charge
+       STOP_CHARGE_THRESH_BAT0 = 90; # 80 and above it stops charging
+
+      };
+  };
+  services.fstrim.enable = true;
+  # ===> LAPTOP #
+
   # ===> PACKAGE #
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
@@ -141,11 +167,11 @@
     drawio
     virtio-win
     # {{ SYSTEM }}
-    mako waybar brightnessctl
+    mako brightnessctl
     swaylock swayimg
     sway-contrib.grimshot
     # {{ DEVELOPMENT }}
-    git lazygit
+    git
     gcc clang rustup python3 go
     gnumake cmake just mage
     gnupatch libtool
